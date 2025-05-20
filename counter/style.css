@@ -13,9 +13,17 @@
     box-sizing: border-box;
 }
 
+#top-menu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 1em 5px 1em;
+    background-color: var(--background-color);
+}
+
 #main-counter {
     width: 100%;
-    height: 75dvh;
+    height: 68dvh;
     display: flex;
     font-family: poppins;
     align-items: center;
@@ -50,8 +58,7 @@
 }
 
 #day-night-button {
-    position: absolute;
-    left: 81dvw; 
+    left: 81%; 
     top: 1%;
     width: 100px;
     height: 38px; 

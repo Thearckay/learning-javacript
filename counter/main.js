@@ -1,86 +1,59 @@
-//Importando elementos do HTML
+//Importando Elementos
 const numberElement = document.getElementById('number')
-
 const addButton = document.getElementById('addButton')
 const resetButton = document.getElementById('resetButton')
 const removeButton = document.getElementById('removeButton')
+const lightDarkButton = document.getElementById('day-night-button')
+const documentElement = document.documentElement
 
-const dayNightButton = document.getElementById('day-night-button')
-//
-
-// Adicionando interatividade
-
-addButton.addEventListener('click', addNumber)
-resetButton.addEventListener('click', reset)
-removeButton.addEventListener('click', removeNumber)
-
-dayNightButton.addEventListener('click', lightDarkMode)
-
-//
-
+//Variáveis Globais
 let contador = 0
+let lightIsOn = true
 
-//funções
+//Add interações 
+addButton.addEventListener('click', addNumber)
+resetButton.addEventListener('click', resetCounter)
+removeButton.addEventListener('click', removeNumber)
+lightDarkButton.addEventListener('click', changeLightMode)
+
+
+
+//Funçoes 
+
 function addNumber() {
-    //contador++
-    contador = contador + 1
+    contador++
     numberElement.textContent = contador
 }
-
-function reset() {
+function resetCounter() {
     contador = 0
     numberElement.textContent = contador
-
 }
-
 function removeNumber() {
-    --contador
+    contador--
     numberElement.textContent = contador
 }
 
-function changeColor() {
-   
-}
 
-setInterval(1000, functionIsOn)
+function changeLightMode() {
+    //Dark mode
+    if(lightIsOn === true) {
+        documentElement.style.setProperty('--black-shadow-inset', 'inset 0px 0px 10px 1px rgba(255, 255, 255, 0.36)')
+        documentElement.style.setProperty('--shadow-black-out', '1px 1px 10px rgba(255, 255, 255, 0.4)')
+        documentElement.style.setProperty('--color', 'white')
+        documentElement.style.setProperty('--background-color', 'black')
 
-let isOn = true // True = light | false = dark
-function functionIsOn() {
-    if (contador < 0) {
-        numberElement.style.color = 'red'
-        lightDarkMode()
-    } else if (contador > 0) {
-        numberElement.style.color = 'black'
+        lightDarkButton.textContent = 'Dark'
+
+        lightIsOn = false
+    } else if (lightIsOn === false) { //Light mode
+        documentElement.style.setProperty('--black-shadow-inset', 'inset 0px 0px 10px 1px rgba(0, 0, 0, 0.115)')
+        documentElement.style.setProperty('--shadow-black-out', '1px 1px 10px rgba(0, 0, 0, 0.103)')
+        documentElement.style.setProperty('--color', 'black')
+        documentElement.style.setProperty('--background-color', 'white')
+
+        lightDarkButton.textContent = 'Light'
+
+
+        lightIsOn = true
     }
 }
-
-function lightDarkMode() {
-    
-
-    if(isOn === true) {
-        const rootElement = document.documentElement
-        rootElement.style.setProperty('--background-color', 'black')
-        rootElement.style.setProperty('--shadow-black-out', '1px 1px 10px rgba(255, 255, 255, 0.33)')
-        rootElement.style.setProperty('--black-shadow-inset', 'inset 1px 1px 10px 1px rgba(255, 255, 255, 0.33)')
-        rootElement.style.setProperty('--color', 'white')
-
-        const dayNightButton = document.getElementById('day-night-button')
-        dayNightButton.textContent = 'Dark'
-
-        isOn = false
-    } else {
-        const rootElement = document.documentElement
-
-        rootElement.style.setProperty('--background-color', 'white')
-        rootElement.style.setProperty('--shadow-black-out', '1px 1px 10px rgba(0, 0, 0, 0.33)')
-        rootElement.style.setProperty('--black-shadow-inset', 'inset 1px 1px 10px 1px rgba(0, 0, 0, 0.33)')
-        rootElement.style.setProperty('--color', 'black')
-
-        const dayNightButton = document.getElementById('day-night-button')
-        dayNightButton.textContent = 'Light'
-
-        isOn = true
-    }
-    
-}
-//
