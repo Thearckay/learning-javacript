@@ -5,6 +5,7 @@
     --shadow-black-out: 1px 1px 10px rgba(0, 0, 0, 0.103); 
     --color: rgb(0, 0, 0);
     --background-color: rgb(255, 255, 255);
+    --main-counter-color: black;
 }
 
 * {
@@ -77,5 +78,5 @@
 }
 
 #number {
-    color: var(--color);
+    color: var(--main-counter-color);
 }
