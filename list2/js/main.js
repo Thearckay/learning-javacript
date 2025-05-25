@@ -24,7 +24,7 @@ btAddInput.addEventListener('click', creatElement)
 function creatElement() {
 
     if (txtInput.value === ''){
-        alert('Preencha o campo antes de adicionar')
+        alert('Preencha o campo antes de adicionar o item')
     } else {
         const txtElement = txtInput.value
 
